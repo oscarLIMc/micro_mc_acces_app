@@ -1,6 +1,7 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { User, Token } = require("../models");
+const jwtConfig = require("../config/jwt");
 
 async function login(username, password) {
   const user = await User.findOne({ where: { username } });
@@ -10,9 +11,9 @@ async function login(username, password) {
   if (!ok) return null;
 
   const payload = { id: user.id, username: user.username };
-  const tokenStr = jwt.sign(payload, process.env.JWT_SECRET, {
-    expiresIn: "1h",
-    issuer: process.env.JWT_ISSUER,
+  const tokenStr = jwt.sign(payload, jwtConfig.secret, {
+    expiresIn: jwtConfig.expiresIn,
+    issuer: jwtConfig.issuer,
   });
 
   await Token.create({ token: tokenStr, userId: user.id });

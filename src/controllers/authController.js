@@ -1,6 +1,7 @@
 const { User } = require("../models");
 const { login } = require("../services/authService");
 const { encryptAES } = require("../utils/aesUtils");
+const jwtConfig = require("../config/jwt");
 
 exports.login = async (req, res) => {
   console.log("🔐 Login attempt 🔐\n");
@@ -14,7 +15,7 @@ exports.login = async (req, res) => {
     return res.json(
       encryptAES({
         token: result.tokenStr,
-        expiresIn: 3600,
+        expiresIn: jwtConfig.expiresIn,
       })
     );
   } catch (e) {

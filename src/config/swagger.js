@@ -1,7 +1,7 @@
 const swaggerJsdoc = require("swagger-jsdoc");
 
-const PORT = process.env.PORT;
-const URL_BASE = process.env.URL_BASE;
+const PORT = process.env.PORT || 3000;
+const URL_BASE = "http://localhost:";
 
 const swaggerDefinition = {
   openapi: "3.0.0",

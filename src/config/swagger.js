@@ -1,33 +1,28 @@
 const swaggerJsdoc = require("swagger-jsdoc");
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
+const URL_BASE = process.env.URL_BASE;
 
 const swaggerDefinition = {
   openapi: "3.0.0",
   info: {
-    title: "MCStore Microservice",
+    title: "MCStore Microservice Bodesa access App",
     version: "2.0.0",
-    description: "API documentation for MCStore (AES-GCM + JWT)",
+    description: "API documentation for MCStore Bodesa App (AES-GCM + JWT)",
   },
   servers: [
-    { url: `http://10.55.37.2:${PORT}` }
+    { url: `${URL_BASE}${PORT}` }
   ],
   components: {
-    securitySchemes: {
-      bearerAuth: {
-        type: "http",
-        scheme: "bearer",
-        bearerFormat: "JWT",
-      },
-    },
     schemas: {
       AESPayload: {
         type: "object",
-        description: "Encrypted AES-GCM payload from Android",
-        properties: {
+        description: "",
+        properties: { 
           data: { type: "string", example: "<Base64 encrypted data>" },
           iv: { type: "string", example: "<Base64 IV (12 bytes)>" },
           tag: { type: "string", example: "<Base64 Tag>" },
+          name: { type: "string", example: "username"}
         },
       },
     },

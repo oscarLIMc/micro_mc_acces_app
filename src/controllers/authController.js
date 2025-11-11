@@ -64,7 +64,7 @@ async function login(req, res) {
         console.warn('Could not persist token:', e.message);
       }
     }
-
+    console.log("token generado para usuario:", tokenStr);
     return res.json({ token: tokenStr }); // 200 OK
   } catch (err) {
     console.error('Login error', err);

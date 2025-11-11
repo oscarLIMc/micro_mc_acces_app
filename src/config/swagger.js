@@ -10,7 +10,7 @@ const swaggerDefinition = {
     description: "API documentation for MCStore (AES-GCM + JWT)",
   },
   servers: [
-    { url: `http://10.55.37.8:${PORT}` }
+    { url: `http://10.55.37.2:${PORT}` }
   ],
   components: {
     securitySchemes: {

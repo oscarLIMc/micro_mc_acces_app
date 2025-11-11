@@ -1,5 +1,4 @@
 const router = require("express").Router();
-const decryptAES = require("../middleware/decryptAES");
 const controller = require("../controllers/authController");
 
 /**
@@ -23,6 +22,6 @@ const controller = require("../controllers/authController");
  *       200:
  *         description: Auth OK
  */
-router.post("/login", decryptAES, controller.login);
+router.post("/login", controller.login);
 
 module.exports = router;

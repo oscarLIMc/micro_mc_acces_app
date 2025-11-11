@@ -31,4 +31,25 @@ function decryptAES(data, iv, tag) {
   return JSON.parse(decrypted);
 }
 
-module.exports = { encryptAES, decryptAES };
+// Funcion para descifrar AES-GCM con clave derivada de contraseña (16 bytes)
+function decryptAES_GCM({ data, iv, tag, password }) {
+    // La key son los PRIMEROS 16 bytes de la contraseña
+    const keyBytes = Buffer.alloc(16);
+    const pwdBytes = Buffer.from(password, "utf8");
+    pwdBytes.copy(keyBytes, 0, 0, Math.min(16, pwdBytes.length));
+
+    const decipher = crypto.createDecipheriv(
+        "aes-128-gcm",
+        keyBytes,
+        Buffer.from(iv, "base64")
+    );
+
+    decipher.setAuthTag(Buffer.from(tag, "base64"));
+
+    let decrypted = decipher.update(data, "base64", "utf8");
+    decrypted += decipher.final("utf8");
+    return decrypted;
+}
+
+module.exports = { encryptAES, decryptAES, decryptAES_GCM };
+

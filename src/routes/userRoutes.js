@@ -24,6 +24,6 @@ const controller = require("../controllers/userController");
  *       201:
  *         description: User created
  */
-router.post("/create", decryptAES, controller.create);
+router.post("/create", controller.create);
 
 module.exports = router;

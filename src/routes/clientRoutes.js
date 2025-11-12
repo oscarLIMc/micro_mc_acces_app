@@ -23,6 +23,6 @@ const controller = require("../controllers/clientController");
  *       201:
  *         description: Client created
  */
-router.post("/register", decryptAES, controller.register);
+router.post("/register", controller.register);
 
 module.exports = router;

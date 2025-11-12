@@ -1,3 +1,0 @@
-Executing (default): SELECT 1+1 AS result
-Executing (default): SELECT 1+1 AS result
-✅ Server running on http://10.55.37.2:\\.\pipe\0212f53f-c843-45a8-808d-f7d8e6c3a837

@@ -10,7 +10,8 @@ const URL_BASE = process.env.URL_BASE;
     await sequelize.authenticate();
     await sequelize.sync({ alter: true });
     app.listen(PORT, () =>
-      console.log(`✅ Server running on ${URL_BASE}`)
+      console.log(`✅ Server running on ${URL_BASE}`),
+      console.log(`✅ PORT: ${PORT}`)
     );
   } catch (e) {
     console.error("❌ Error starting server:", e);

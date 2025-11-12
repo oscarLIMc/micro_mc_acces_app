@@ -5,4 +5,8 @@ async function registerClient(email) {
     return await Client.create({ email });
 }
 
-module.exports = { registerClient };
+async function getClientByEmail(email) {
+    return await Client.findOne({ where: { email } });
+}
+
+module.exports = { registerClient, getClientByEmail };

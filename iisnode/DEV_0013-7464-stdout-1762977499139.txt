@@ -1,7 +1,0 @@
-Executing (default): SELECT 1+1 AS result
-Executing (default): SELECT 1+1 AS result
-✅ Server running on http://10.55.37.2:
-🔐 Decrypting AES-GCM payload 🔐
-Payload received for decryption: { email: 'rico@suabe.com' }
-Create client: rico@suabe.com
-Executing (default): INSERT INTO [Clients] ([email],[createdAt],[updatedAt]) OUTPUT INSERTED.[id],INSERTED.[email],INSERTED.[createdAt],INSERTED.[updatedAt] VALUES (@0,@1,@2);

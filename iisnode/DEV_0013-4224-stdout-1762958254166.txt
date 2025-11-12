@@ -1,0 +1,8 @@
+Loaded env: {
+  AES_KEY: '0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef',
+  DB_USER: 'root',
+  DB_PASS: '213241095',
+  DB_NAME: 'micro_mc_db',
+  APP_STORAGE: './storage'
+}
+✅ Server running on http://localhost:\\.\pipe\58acf3e6-86af-4e62-ba1f-626a2a23f0e0

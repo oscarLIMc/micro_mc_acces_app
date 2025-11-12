@@ -1,11 +1,4 @@
 require('dotenv').config();
-console.log("Loaded env:", {
-  AES_KEY: process.env.AES_KEY,
-  DB_USER: process.env.DB_USER,
-  DB_PASS: process.env.DB_PASS,
-  DB_NAME: process.env.DB_NAME,
-  APP_STORAGE: process.env.APP_STORAGE
-});
 const fs = require("fs");
 const path = require("path");
 

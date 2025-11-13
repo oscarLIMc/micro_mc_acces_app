@@ -1,0 +1,3 @@
+Executing (default): SELECT 1+1 AS result
+Executing (default): SELECT 1+1 AS result
+✅ PORT: \\.\pipe\e91bb5e9-f669-415c-8eb3-8024a48d9a31

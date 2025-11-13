@@ -1,0 +1,5 @@
+Executing (default): SELECT 1+1 AS result
+Executing (default): SELECT 1+1 AS result
+✅ PORT: \\.\pipe\b8ea5f40-1cb8-47c1-a2fe-daefc839007a
+Request body: { email: 'super@gmail.com' }
+Create client: super@gmail.com

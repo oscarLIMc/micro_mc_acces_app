@@ -11,7 +11,7 @@ const swaggerDefinition = {
   },
   servers: [
     {
-      url: `${URL_BASE}:${PORT}`,
+      url: `${URL_BASE}`,
     },
   ],
   components: {

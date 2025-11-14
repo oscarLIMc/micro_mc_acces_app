@@ -1,0 +1,12 @@
+Application has thrown an uncaught exception and is terminated:
+Error: Please install tedious package manually
+    at ConnectionManager._loadDialectModule (C:\sitios\micro_mc_acces_app\node_modules\sequelize\lib\dialects\abstract\connection-manager.js:55:15)
+    at new ConnectionManager (C:\sitios\micro_mc_acces_app\node_modules\sequelize\lib\dialects\mssql\connection-manager.js:14:21)
+    at new MssqlDialect (C:\sitios\micro_mc_acces_app\node_modules\sequelize\lib\dialects\mssql\index.js:13:30)
+    at new Sequelize (C:\sitios\micro_mc_acces_app\node_modules\sequelize\lib\sequelize.js:194:20)
+    at Object.<anonymous> (C:\sitios\micro_mc_acces_app\src\config\sqlserver.js:3:19)
+    at Module._compile (node:internal/modules/cjs/loader:1760:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1480:32)
+    at Module._load (node:internal/modules/cjs/loader:1299:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)

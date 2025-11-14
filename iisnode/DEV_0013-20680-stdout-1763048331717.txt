@@ -1,0 +1,12 @@
+Executing (default): SELECT 1+1 AS result
+Executing (default): SELECT 1+1 AS result
+✅ PORT: \\.\pipe\0f769e59-88f4-4b92-893b-ae47360f999f
+[2025-11-13T15:38:53.970Z] GET / | proto=http
+[2025-11-13T15:38:54.071Z] GET / | proto=http
+[2025-11-13T15:39:03.638Z] GET /api-docs | proto=http
+[2025-11-13T15:39:03.648Z] GET /api-docs/ | proto=http
+[2025-11-13T15:39:03.685Z] GET /api-docs/swagger-ui.css | proto=http
+[2025-11-13T15:39:03.703Z] GET /api-docs/swagger-ui-bundle.js | proto=http
+[2025-11-13T15:39:03.711Z] GET /api-docs/swagger-ui-standalone-preset.js | proto=http
+[2025-11-13T15:39:03.713Z] GET /api-docs/swagger-ui-init.js | proto=http
+[2025-11-13T15:39:04.011Z] GET /api-docs/favicon-32x32.png | proto=http

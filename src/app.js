@@ -13,6 +13,13 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+app.set('trust proxy', true);
+
+app.use((req, res, next) => {
+  console.log(`[${new Date().toISOString()}] ${req.method} ${req.originalUrl} | proto=${req.protocol}`);
+  next();
+});
+
 // ROUTES
 app.use("/auth", authRoutes);
 app.use("/client", clientRoutes);
@@ -20,6 +27,6 @@ app.use("/user", userRoutes);
 app.use("/app", appRoutes);
 
 // SWAGGER
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use("/", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 module.exports = app;

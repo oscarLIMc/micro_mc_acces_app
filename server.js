@@ -2,8 +2,8 @@ const app = require("./src/app");
 const sequelize = require("./src/config/sqlserver");
 require("dotenv").config();
 
-const PORT = process.env.PORT;
-const URL_BASE = process.env.URL_BASE;
+const PORT = process.env.PORT || 3000;
+const URL_BASE = process.env.URL_BASE || `http://localhost:${PORT}`;
 
 (async () => {
   try {

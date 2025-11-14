@@ -1,12 +1,11 @@
 const { Sequelize } = require("sequelize");
-const { options } = require("../app");
 const sequelize = new Sequelize(
-  'micro_mc_db',
+  'BODESA',
   'sa',
-  '213241095',
+  'Enter83',
   {
-    host: 'localhost',
-    port: 1434,
+    host: '10.55.37.12',
+    port: 1433,
     dialect: "mssql",
     dialectOptions: {
       options: {

@@ -8,7 +8,7 @@ const URL_BASE = process.env.URL_BASE;
 (async () => {
   try {
     await sequelize.authenticate();
-    await sequelize.sync({ alter: true });
+    // await sequelize.sync({ alter: true });
     app.listen(PORT, () =>
       console.log(`✅ Server running on ${URL_BASE}`),
       console.log(`✅ PORT: ${PORT}`)

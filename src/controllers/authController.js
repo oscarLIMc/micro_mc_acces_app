@@ -1,8 +1,9 @@
-const { User, Token } = require('../models');
+// const { User, Token } = require('../models');
 const passwordToAes128Key = require('../utils/aesKeyFromPassword');
 const decryptAes128GcmBase64 = require('../utils/aesGcmDecryptWithKey');
 const jwt = require('jsonwebtoken');
 const jwtConfig = require('../config/jwt');
+const db = require('../config/sqlserver');
 
 async function login(req, res) {
   try {
@@ -14,12 +15,11 @@ async function login(req, res) {
       return res.status(400).json({ error: 'Missing fields' });
     }
 
-    // Buscar usuario en DB
-    const user = await User.findOne({ where: { username: usuario } });
+    const user = await db.query(`SELECT CAT_LO_USUARIO, dbo.DECRYPTFMC(CAT_LO_CONTRASENA) PASS FROM CAT_LOGINS WHERE CAT_LO_USUARIO = '${usuario}'`, { type: db.QueryTypes.SELECT })
     if (!user) return res.status(401).json({ error: 'Invalid credentials' });
-    console.log('Usuario encontrado:', user.username);
+    console.log("Usuario encontrado:", user[0].CAT_LO_USUARIO);
 
-    const storedPassword = user.pass;
+    const storedPassword = user[0].PASS;
 
     // Construir key AES-128 (16 bytes) desde la contraseña almacenada
     const keyBuf = passwordToAes128Key(storedPassword);
@@ -50,20 +50,12 @@ async function login(req, res) {
     }
 
     // OK -> generar JWT (1 minuto)
-    const payload = { id: user.id, username: user.username };
+    const payload = { id: user[0].CAT_LO_USUARIO, username: user[0].CAT_LO_USUARIO };
     const tokenStr = jwt.sign(payload, jwtConfig.secret, {
       expiresIn: jwtConfig.expiresIn,
       issuer: jwtConfig.issuer
     });
 
-    // Opcional: guardar token en DB
-    if (Token) {
-      try {
-        await Token.create({ token: tokenStr, userId: user.id });
-      } catch (e) {
-        console.warn('Could not persist token:', e.message);
-      }
-    }
     console.log("token generado para usuario:", tokenStr);
     return res.json({ token: tokenStr }); // 200 OK
   } catch (err) {
@@ -73,3 +65,13 @@ async function login(req, res) {
 }
 
 module.exports = { login };
+
+// use BODESA;
+
+// select CAT_LO_USUARIO, dbo.DECRYPTFMC(CAT_LO_CONTRASENA) 
+// FROM CAT_LOGINS 
+
+// UPDATE CAT_LOGINS
+// SET CAT_LO_CONTRASENA = dbo.ENCRYPTFMC('1234567891234567*')
+// WHERE CAT_LO_USUARIO = 'AALEISSA';
+

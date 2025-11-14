@@ -20,6 +20,6 @@ app.use("/user", userRoutes);
 app.use("/app", appRoutes);
 
 // SWAGGER
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use("/", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 module.exports = app;

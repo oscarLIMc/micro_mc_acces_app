@@ -1,11 +1,12 @@
 const { Sequelize } = require("sequelize");
+require("dotenv").config();
 const sequelize = new Sequelize(
-  'BODESA',
-  'sa',
-  'Enter83',
+  process.env.MSSQL_NAME,
+  process.env.MSSQL_USER,
+  process.env.MSSQL_PASS,
   {
-    host: '10.55.37.12',
-    port: 1433,
+    host: process.env.MSSQL_HOST,
+    port: process.env.MSSQL_PORT,
     dialect: "mssql",
     dialectOptions: {
       options: {

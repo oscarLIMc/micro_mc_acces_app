@@ -16,4 +16,4 @@ const URL_BASE = process.env.URL_BASE;
   } catch (e) {
     console.error("❌ Error starting server:", e);
   }
-})();
+})(); 

@@ -4,7 +4,7 @@ const path = require("path");
 
 exports.downloadAPK = async (req, res) => {
   try {
-    const fileName = "app-Bodesa_21122023_qr.apk";
+    const fileName = "app-PR-release 1.apk";
     const filePath = path.resolve(process.env.APP_STORAGE, fileName);
 
     console.log("Resolved file path:", filePath);

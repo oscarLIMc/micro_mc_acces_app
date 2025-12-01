@@ -4,8 +4,10 @@ const path = require("path");
 
 exports.downloadAPK = async (req, res) => {
   try {
-    const fileName = "app-debug.apk";
+    const fileName = "app-Bodesa_21122023_qr.apk";
     const filePath = path.resolve(process.env.APP_STORAGE, fileName);
+
+    console.log("Resolved file path:", filePath);
 
     if (!fs.existsSync(filePath))
       return res.status(404).json({ error: "APK not found" });
